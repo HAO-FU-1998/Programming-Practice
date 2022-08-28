@@ -1,2 +1,4 @@
-# Programming-Practice
-Programming Practice (2017-2018)
+# Programming Practice
+## Tianjin University
+### Hao Fu
+#### 3016218083@tju.edu.cn
