@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1492963203 source:c:\users\apple\desktop\project\main.cpp
+	<iostream>
+	<string>
+	<ctime>
+	<cstring>
+	<conio.h>
+	<iomanip>
+	<algorithm>
+
