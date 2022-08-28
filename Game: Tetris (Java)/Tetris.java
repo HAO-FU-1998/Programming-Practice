@@ -10,7 +10,7 @@ import java.util.Random;
 
 import javax.swing.*;
 
-//¸µœB     3016218083
+//å‚…æ·     3016218083
 
 
 public class Tetris extends JFrame
@@ -20,15 +20,15 @@ public class Tetris extends JFrame
 	public Tetris()
 	{		
 		add (jPanel);		
-		//±êÌâ
-		setTitle ("¶íÂŞË¹·½¿é(Tetris)");
-		//´óĞ¡
+		//æ ‡é¢˜
+		setTitle ("ä¿„ç½—æ–¯æ–¹å—(Tetris)");
+		//å¤§å°
 		setSize (500, 600);
-		//¿ÉÊÓ»¯
+		//å¯è§†åŒ–
 		setVisible (true);
 		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo (null);
-		jPanel.requestFocus();//»ñµÃ½¹µã ¼üÅÌ»ñµÃ½¹µã
+		jPanel.requestFocus();//è·å¾—ç„¦ç‚¹ é”®ç›˜è·å¾—ç„¦ç‚¹
 		
 	}
 	public static void main (String[]args)
@@ -37,31 +37,31 @@ public class Tetris extends JFrame
 	}
 
 }
-//×Ô¶¨ÒåÎèÌ¨Àà
+//è‡ªå®šä¹‰èˆå°ç±»
 class StageJPanel extends JPanel
 {
-	static final int MAX_WIDTH = 20;//·İ
+	static final int MAX_WIDTH = 20;//ä»½
 	static final int MAX_HEIGHT = 30;
 	static final int SQUARE = 20;//20px
-	Shape shape;//ÕıÔÚµôÂäµÄÍ¼ĞÎ
+	Shape shape;//æ­£åœ¨æ‰è½çš„å›¾å½¢
 	
-	ImageIcon icon = new ImageIcon ("sb.jpg");//±³¾°Í¼
-	//´´½¨Ò»¸ö¶¨Ê±Æ÷
+	ImageIcon icon = new ImageIcon ("sb.jpg");//èƒŒæ™¯å›¾
+	//åˆ›å»ºä¸€ä¸ªå®šæ—¶å™¨
 	Timer timer = new Timer(1000, new ShapeFallTask());
 	int container [][] = new int [MAX_HEIGHT][MAX_WIDTH];
-	//ÒÑµôÂäµÄÍ¼ĞÎ
+	//å·²æ‰è½çš„å›¾å½¢
 	
 	public StageJPanel()
-	{//Ëæ»úÍ¼ĞÎ
+	{//éšæœºå›¾å½¢
 		this.shape = ShapeFactory.randomShape();
 		
-       //¼üÅÌ¼àÌıÊÂ¼ş
+       //é”®ç›˜ç›‘å¬äº‹ä»¶
 		KeyListener keyListner = new ShapeKeyListener();
 		this.addKeyListener (keyListner);
-		//Æô¶¯¶¨Ê±Æ÷
+		//å¯åŠ¨å®šæ—¶å™¨
 		timer.start();
 	}
-//Í¼ĞÎ×Ô¶¯µôÂä
+//å›¾å½¢è‡ªåŠ¨æ‰è½
 class ShapeFallTask implements ActionListener
 {
 	public void actionPerformed (ActionEvent e)
@@ -75,23 +75,23 @@ class ShapeFallTask implements ActionListener
 		{
 			if (isAlive())
 			{
-			//¸´ÖÆ
+			//å¤åˆ¶
 			fill();
-			//»»Í¼
+			//æ¢å›¾
 			shape = ShapeFactory.randomShape();
 			repaint();
 		    }
 			else
 			{
 				timer.stop();
-				JOptionPane.showMessageDialog (StageJPanel.this, "ËÀÍö(Death)");
+				JOptionPane.showMessageDialog (StageJPanel.this, "æ­»äº¡(Death)");
 			}
 		}
 	}
 		
 }
 
-//¸´ÖÆÍ¼ĞÎµ½Êı×é
+//å¤åˆ¶å›¾å½¢åˆ°æ•°ç»„
  void fill()
  {
 		for (int i = 0; i < shape.values.length; i++)
@@ -106,7 +106,7 @@ class ShapeFallTask implements ActionListener
 		}
   }
 
-	// ÄÚ²¿Àà
+	// å†…éƒ¨ç±»
 	class ShapeKeyListener implements KeyListener
 	{
 
@@ -128,17 +128,17 @@ class ShapeFallTask implements ActionListener
 				    break;
 			
 			}
-			repaint();//ÖØ»æ
+			repaint();//é‡ç»˜
 		}
 
 		public void keyReleased (KeyEvent e) 
 		{
-			// TODO ×Ô¶¯Éú³É·½·¨´æ¸ù
+			// TODO è‡ªåŠ¨ç”Ÿæˆæ–¹æ³•å­˜æ ¹
 		}
 
 		public void keyTyped (KeyEvent e) 
 		{
-			// TODO ×Ô¶¯Éú³É·½·¨´æ¸ù
+			// TODO è‡ªåŠ¨ç”Ÿæˆæ–¹æ³•å­˜æ ¹
 		}			
 	}
 	
@@ -146,24 +146,24 @@ class ShapeFallTask implements ActionListener
 	
 	protected void paintComponent (Graphics g) 
 	{
-		super.paintComponent (g);//²Á³ı
+		super.paintComponent (g);//æ“¦é™¤
 		g.setColor (Color.BLACK);
 		g.drawImage (icon.getImage(), 0, 0, null);
 		
 		for (int i = 0; i <= MAX_HEIGHT; i++)
-		{//ºáÏß
+		{//æ¨ªçº¿
 	        g.drawLine (0, i * SQUARE, MAX_WIDTH * SQUARE, i * SQUARE);
 		}
 		for (int i = 0; i <= MAX_WIDTH; i++)
-		{//ÊúÏß
+		{//ç«–çº¿
 			g.drawLine (i * SQUARE, 0, i * SQUARE, MAX_HEIGHT * SQUARE);
 		}
         if (shape != null)
-        {//»­Í¼ĞÎ
+        {//ç”»å›¾å½¢
     	   shape.paint (g);
     	   g.setColor (Color.GREEN);
         }
-        //»æÖÆÔ­ÓĞµôÂäÍ¼ĞÎ
+        //ç»˜åˆ¶åŸæœ‰æ‰è½å›¾å½¢
         for (int i = 0; i < container.length; i++)
         {
     	    for (int j = 0; j < container[i].length; j++)
@@ -179,7 +179,7 @@ class ShapeFallTask implements ActionListener
        }
 				
 	}
-	//ÊÇ·ñ¿ÉÒÔÒÆ¶¯
+	//æ˜¯å¦å¯ä»¥ç§»åŠ¨
 	public Boolean isFall()
 	{
 		for (int i = 0; i < shape.values.length; i++)
@@ -188,12 +188,12 @@ class ShapeFallTask implements ActionListener
 			{
 				if (shape.values[i][j] == 1)
 				{
-					//Èç¹ûµ½µ×·µ»Øfalse
+					//å¦‚æœåˆ°åº•è¿”å›false
 				    if ((shape.y + i) == MAX_HEIGHT - 1)
 				    {
 					    return false;
 				    }
-				    //¼ìÑéÊÇ·ñÅöµ½ÆäËûÍ¼ĞÎ
+				    //æ£€éªŒæ˜¯å¦ç¢°åˆ°å…¶ä»–å›¾å½¢
 				    if (container[shape.y + i + 1][shape.x + j] == 1)
 				    {
 					    return false;
@@ -221,7 +221,7 @@ class ShapeFallTask implements ActionListener
 	
 }
 
-//Í¼ĞÎÀà
+//å›¾å½¢ç±»
 class Shape
 {
 	int [][] values;
@@ -232,7 +232,7 @@ class Shape
 	{
 		this.values = values;
 	}		
-    //Í¼ĞÎ»æÖÆ×Ô¼º
+    //å›¾å½¢ç»˜åˆ¶è‡ªå·±
 	public void paint (Graphics g)
 	{
 		for (int i = 0; i < values.length; i++)
@@ -246,25 +246,25 @@ class Shape
 			}			
 		}		
 	}	
-	//ÏÂÂä
+	//ä¸‹è½
 	public void fall()
 	{
 		y++;
 	}
 	
-	//×óÒÆ
+	//å·¦ç§»
 	public void left()
 	{
 		x--;
 	}
 	
-	//ÓÒÒÆ
+	//å³ç§»
     public void right()
     {
 		x++;
 	}
     
-    //Ğı×ª
+    //æ—‹è½¬
     public void rotate()
     {
     	int [][]_values = ShapeUtils.rotate (this.values);
@@ -273,7 +273,7 @@ class Shape
 	}
 }
 
-//Í¼ĞÎ¹¤³§
+//å›¾å½¢å·¥å‚
 class ShapeFactory
 {
 	 static Random random = new Random ();
@@ -307,7 +307,7 @@ class ShapeFactory
 			  },
 	  };
 	  
-	  //Ëæ»úÍ¼ĞÎ
+	  //éšæœºå›¾å½¢
      public static Shape randomShape ()
      {
 		  int i = random.nextInt (shapes.length);
@@ -317,12 +317,12 @@ class ShapeFactory
 	  
   }
 /**
- * ¹¤¾ßÀà
+ * å·¥å…·ç±»
  * @author k59
  */
 class ShapeUtils
 {
-	//Ğı×ª·½·¨
+	//æ—‹è½¬æ–¹æ³•
 	public static int [][] rotate (int [][] old)
 	{
 		int [][] temp = new int [old[0].length][old.length];
